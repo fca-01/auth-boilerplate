@@ -23,7 +23,7 @@ export const NavBar = async () => {
           <Link href="/auth/login">
             <Button variant={'outline'} type="submit">Login</Button>
           </Link>
-          <Link href="/auth/login">
+          <Link href="/auth/register">
             <Button variant={'default'} type="submit">Register</Button>
           </Link>
         </div>

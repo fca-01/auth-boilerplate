@@ -11,16 +11,18 @@ export const { auth, handlers: { GET, POST }, signIn, signOut } = NextAuth({
   ...authConfig,
   callbacks: {
     async signIn({ user, account }) {
-      if (account?.provider !== 'crendentials') {
+      if (account?.provider !== 'credentials') {
         return true;
       }
       if (!user.id) {
         return false;
       }
       const existingUser = await getUserById(user.id);
+
       if (!existingUser?.emailVerified) {
         return false;
       }
+
       return true;
     },
     async jwt({ token }) {

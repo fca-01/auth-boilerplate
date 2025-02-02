@@ -4,6 +4,8 @@ import * as z from "zod";
 import { prisma } from "@/prisma/prisma";
 import bcrypt from "bcryptjs";
 import { RegisterSchema } from "@/schemas";
+import { generateVerificationToken } from "@/lib/token";
+import { sendVerificationEmail } from "@/lib/mail";
 // import { generateVerificationToken } from "@/lib/token";
 // import { sendVerificationEmail } from "@/lib/mail";
 
@@ -52,9 +54,9 @@ export const register = async (data: z.infer<typeof RegisterSchema>) => {
     });
 
     // Generate Verification Token
-    // const verificationToken = await generateVerificationToken(email);
+    const verificationToken = await generateVerificationToken(email);
 
-    // await sendVerificationEmail(lowerCaseEmail, verificationToken.token);
+    await sendVerificationEmail(lowerCaseEmail, verificationToken.token);
 
     return { success: "Email Verification was sent" };
   } catch (error) {
