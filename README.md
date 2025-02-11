@@ -1,4 +1,4 @@
-# 🚀 Boilerplate e Starter para Next.js 15+, Tailwind CSS 4 e TypeScript
+# 🚀 Boilerplate para Next.js 15+, Tailwind CSS e TypeScript
 
 Um template moderno e pronto para uso, com as melhores práticas e ferramentas para desenvolvimento web.
 
